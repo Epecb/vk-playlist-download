@@ -108,6 +108,7 @@ def save_config():
     data.update({'owner_id': owner_id})
     data.update({'owner_cookies': owner_cookies})
     data.update({'playlist_file': playlist_file})
+    data.update({'user_agent': useragent})
     with open(config_file, 'w') as outfile:
         json.dump(data, outfile, indent=2)
     print('config.json created')
@@ -119,9 +120,11 @@ def load_config():
         global owner_id
         global owner_cookies
         global playlist_file
+        global useragent
         owner_id = data['owner_id']
         owner_cookies = data['owner_cookies']
         playlist_file = data['playlist_file']
+        useragent = data['user_agent']
 
 
 if __name__ == '__main__':
